@@ -40,7 +40,7 @@ jobs:
         run: php artisan key:generate
       - name: Verify MySQL connection
         run: |
-          ping mysql -n 3
+          ping mysql -n 3 || ping mariadb -n 3 
           echo ${{ job.services.mysql.ports['3306'] }}
           sudo apt-get install -y mysql-client
           mysql -hlocalhost -P${{ job.services.mysql.ports['3306'] }} -ucishe -pcishe -e "SHOW DATABASES"       
