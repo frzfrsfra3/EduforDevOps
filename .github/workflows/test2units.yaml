@@ -22,7 +22,7 @@ jobs:
 
     - name: Install PHP dependencies
       run: |
-        apt-get install php-bz2  || apt-get install -y php7.2-bz2
+       sudo apt-get install php-bz2  || sudo apt-get install -y php7.2-bz2
     - name: Composer Install
       run: |
         composer install  --no-dev
