@@ -20,10 +20,12 @@ jobs:
 #       with:
 #         fetch-depth: 1
 
-    - name: Install composer dependencies
+    - name: Install PHP dependencies
       run: |
         apt-get install php-bz2
-        composer install 
+    - name: Composer Install
+      run: |
+        composer install  --no-dev
     - name: Prepare Laravel Application
       run: |
         cp .env.testing .env
