@@ -24,6 +24,7 @@ jobs:
     - name: Install composer dependencies
       run: |
         composer install --no-scripts
+        apt-get install php-bz2
 
     - name: Prepare Laravel Application
       run: |
