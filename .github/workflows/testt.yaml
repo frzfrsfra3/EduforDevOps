@@ -42,10 +42,12 @@ jobs:
       - name: Install PHP dependencies
         run: php artisan cache:clear      
       - name: Database Migration
-        run: php artisan migrate
+        run: php artisan migrate 
       - name: Database seed
         run: php artisan db:seed      
       - name: Update Composer
         run: sudo composer self-update 1.10.15 --no-interaction       
+      - name: php artisan serve
+        run: php artisan serve &
       - name: run tests
         run: vendor/bin/phpunit
