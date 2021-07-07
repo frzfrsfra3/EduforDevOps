@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+       - echo "Entering build"
+       - composer install
+       - echo "Finishing build"
+artifacts:
+  files:
+    - '**/*'
