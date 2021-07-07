@@ -14,8 +14,6 @@
         "google/apiclient": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
         "intervention/image": "^2.4",
-        "jonnyw/php-phantomjs": "4.*",
-        "josh/laravel-phantomjs": "^1.1",
         "laravel/framework": "^5.6.0",
         "laravel/homestead": "^7.3",
         "laravel/socialite": "^3.0",
