@@ -16,9 +16,11 @@ jobs:
           - 3306:3306
   
     steps:
-#     - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
 #       with:
 #         fetch-depth: 1
+    - name: Install PHP dependencies
+      run: php artisan cache:clear
 
     - name: Install PHP dependencies
       run: |
