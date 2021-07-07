@@ -7,7 +7,7 @@ jobs:
       matrix:
         operating-system: ['ubuntu-latest']
         php-versions: ['7.3']
-        phpunit-versions: ['latest']
+        phpunit-versions: ['7.0']
         include:
           - operating-system: 'ubuntu-latest'
             php-versions: '7.3'
@@ -35,6 +35,12 @@ jobs:
         run: sudo composer self-update 1.10.15 --no-interaction
       - name: Run Composer Install
         run: composer install --no-interaction
+      - name: PHP Artisan Key Generate
+        run: php artisan key:generate
+#       - name: PHP Artisan cache clear
+#         run: php artisan key:generate
+      - name: Install PHP dependencies
+        run: php artisan cache:clear      
       - name: Database Migration
         run: php artisan migrate
       - name: Database seed
