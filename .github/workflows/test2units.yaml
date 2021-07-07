@@ -1,0 +1,36 @@
+on: push
+name: CI
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+    container:
+      image: edbizarro/gitlab-ci-pipeline-php:7.2
+
+    services:
+      mysql:
+        image: mariadb:10.3.11
+        env:
+          MYSQL_ROOT_PASSWORD: secret
+          MYSQL_DATABASE: test
+        ports:
+          - 3306:3306
+  
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+
+    - name: Install composer dependencies
+      run: |
+        composer install 
+    - name: Prepare Laravel Application
+      run: |
+        cp .env.testing .env
+        php artisan key:generate
+    - name: DataBase Migration
+      run: |
+        php artisan migrate 
+        php artisan db:seed
+    - name: Run Testsuite
+      run: vendor/bin/phpunit tests/
+
