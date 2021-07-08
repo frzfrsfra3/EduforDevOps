@@ -6,11 +6,11 @@ jobs:
     strategy:
       matrix:
         operating-system: ['ubuntu-latest']
-        php-versions: ['7.3']
+        php-versions: ['7.4']
         phpunit-versions: ['7.0']
         include:
           - operating-system: 'ubuntu-latest'
-            php-versions: '7.3'
+            php-versions: '7.4'
     services:
       mysqldb:
         image: mysql:5.7
@@ -39,6 +39,7 @@ jobs:
           mysql --host mysqldb -uroot -prootpass -e "SHOW DATABASES"  ||  mysql --host localhost -uroot -prootpass -e "SHOW DATABASES"   ||  mysql --host 127.0.0.1 -uroot -prootpass -e "SHOW DATABASES"      
       - name: Copy .env
         run: |
+          mysql --host 127.0.0.1 -uroot -prootpass -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'rootpass';
           php -r "file_exists('.env') || copy('.env.github', '.env');" 
           cp .env.github .env
       - name: Update Composer
