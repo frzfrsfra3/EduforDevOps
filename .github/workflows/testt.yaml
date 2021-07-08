@@ -16,15 +16,16 @@ jobs:
         image: mysql:latest
       
         env:
-          MYSQL_HOST: mysqldb
-          MYSQL_DATABASE: test_database
-          MYSQL_USER: admin
-          MYSQL_PASSWORD: rootpass
+#           MYSQL_HOST: mysqldb
+#           MYSQL_DATABASE: test_database
+#           MYSQL_USER: admin
+#           MYSQL_PASSWORD: rootpass
           MYSQL_ROOT_PASSWORD: rootpass
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v2
       - uses: nanasess/setup-php@master
+      
         with:
           php-version: '7.3'
       - name: Verify MySQL connection from container 
