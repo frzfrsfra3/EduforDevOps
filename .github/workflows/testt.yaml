@@ -7,7 +7,7 @@ jobs:
       matrix:
         operating-system: ['ubuntu-latest']
         php-versions: ['7.4']
-        phpunit-versions: ['7.0']
+#         phpunit-versions: ['7.0']
         include:
           - operating-system: 'ubuntu-latest'
             php-versions: '7.4'
@@ -80,4 +80,4 @@ jobs:
           cp .env.github .env
           php artisan config:clear
           php artisan key:generate
-          vendor/bin/phpunit
+          vendor/bin/phpunit || composer test
