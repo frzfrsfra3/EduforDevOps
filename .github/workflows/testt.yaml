@@ -22,7 +22,7 @@ jobs:
         env:
           MYSQL_HOST: 127.0.0.1
           MYSQL_DATABASE: test_database
-          MYSQL_USER: admin
+          MYSQL_USER: root
           MYSQL_PASSWORD: rootpass
           MYSQL_ROOT_PASSWORD: rootpass
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
