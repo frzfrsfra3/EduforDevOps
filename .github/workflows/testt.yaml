@@ -29,8 +29,8 @@ jobs:
           php-version: '7.3'
       - name: Verify MySQL connection from container 
         run: | 
-          apt-get update
-          apt-get install -y mysql-client
+          apt-get update &
+          apt-get install -y mysql-client &
           mysql --host mysqldb -uroot -prootpass -e "SHOW DATABASES"          
       - name: Copy .env
         run: |
