@@ -65,6 +65,8 @@ jobs:
         run: php artisan serve &
       - name: run tests
         run: |  
+          ls -la
+          cp .env.github .env
           php artisan config:clear
           php artisan key:generate
           vendor/bin/phpunit
