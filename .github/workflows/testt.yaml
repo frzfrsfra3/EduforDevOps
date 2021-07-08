@@ -20,6 +20,8 @@ jobs:
           MYSQL_USER: admin
           MYSQL_PASSWORD: rootpass
           MYSQL_ROOT_PASSWORD: rootpass
+        volumes:
+           - mysql-data:/var/lib/mysq  
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
