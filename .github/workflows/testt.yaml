@@ -43,7 +43,7 @@ jobs:
       - name: test docker containers 
         run: docker container ls -a
       - name: test docker containers details
-        run: docker inspect $(docker run -d -p 4321 base nc -lk 4321)
+        run: docker inspect $(sudo docker ps -aq)
       - name: Verify MySQL connection
         run: |
           ping mysql -n 3 || ping mariadb -n 3 
