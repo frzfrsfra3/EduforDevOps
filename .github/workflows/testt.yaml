@@ -12,9 +12,9 @@ jobs:
           - operating-system: 'ubuntu-latest'
             php-versions: '7.3'
     services:
-      mysql:
+      mysqldb:
         image: mariadb:10.3.11
-         mariadb_test
+      
         env:
           MYSQL_DATABASE: test_database
           MYSQL_USER: admin
