@@ -90,6 +90,10 @@ jobs:
           php artisan config:clear
           php artisan key:generate
           vendor/bin/phpunit || composer test
+      - name: Start Chrome Driver
+        run: ./vendor/laravel/dusk/bin/chromedriver-linux &
+      - name: Run Laravel Server
+        run: php artisan serve &   
       - name: Install Dusk on composer
         run: composer require --dev laravel/dusk || composer require --dev laravel/dusk:"^4.0"
       - name: Install Dusk Tests
