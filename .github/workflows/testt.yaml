@@ -91,7 +91,7 @@ jobs:
           php artisan key:generate
           vendor/bin/phpunit || composer test
       - name: Install Dusk on composer
-        run: composer require --dev laravel/dusk 
+        run: composer require --dev laravel/dusk || composer require --dev laravel/dusk:"^4.0"
       - name: Install Dusk Tests
         run: php artisan dusk:install
       - name: Run Dusk Tests
