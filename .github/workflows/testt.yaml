@@ -81,6 +81,7 @@ jobs:
          DB_DATABASE: test_database
          DB_USER: root
          DB_PASSWORD: rootpass
+         DB_PORT: 3306
         run: |  
           ls -la
           cp .env.github .env
