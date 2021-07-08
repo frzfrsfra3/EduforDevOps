@@ -32,7 +32,7 @@ jobs:
         run: | 
           apt-get update &
           apt-get install -y mysql-client &
-          mysql --host mysqldb -uroot -prootpass -e "SHOW DATABASES"          
+          mysql --host mysqldb -uroot -prootpass -e "SHOW DATABASES"  ||  mysql --host localhost -uroot -prootpass -e "SHOW DATABASES"   ||  mysql --host 127.0.0.1 -uroot -prootpass -e "SHOW DATABASES"      
       - name: Copy .env
         run: |
           php -r "file_exists('.env') || copy('.env.github', '.env');" 
