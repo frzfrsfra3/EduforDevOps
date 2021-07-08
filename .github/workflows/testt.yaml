@@ -14,6 +14,7 @@ jobs:
     services:
       mysql:
         image: mariadb:10.3.11
+         mariadb_test
         env:
           MYSQL_DATABASE: test_database
           MYSQL_USER: admin
