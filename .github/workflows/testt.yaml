@@ -76,6 +76,9 @@ jobs:
       - name: php artisan serve
         run: php artisan serve &
       - name: run tests
+        env:
+         DB_CONNECTION: mysql
+         DB_DATABASE: test_database
         run: |  
           ls -la
           cp .env.github .env
