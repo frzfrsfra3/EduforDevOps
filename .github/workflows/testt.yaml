@@ -63,4 +63,6 @@ jobs:
       - name: php artisan serve
         run: php artisan serve &
       - name: run tests
-        run: vendor/bin/phpunit
+        run: |  
+          php artisan key:generate
+          vendor/bin/phpunit
