@@ -116,7 +116,9 @@ jobs:
       - name: Install Dusk Tests
         run: php artisan dusk:install
       - name: ci-dusk
-        run: bin/ci-dusk
+        run: |
+          chmod -R 755 bin/ci-dusk
+          bin/ci-dusk
       - name: Run Dusk Tests
         env:
           APP_ENV: testing
