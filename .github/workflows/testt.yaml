@@ -115,6 +115,8 @@ jobs:
                DB_PORT: 3306          
       - name: Install Dusk Tests
         run: php artisan dusk:install
+      - name: ci-dusk
+        run: bin/ci-dusk
       - name: Run Dusk Tests
         env:
           APP_ENV: testing
