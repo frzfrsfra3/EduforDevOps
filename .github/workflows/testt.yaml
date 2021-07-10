@@ -115,13 +115,27 @@ jobs:
                DB_PORT: 3306          
       - name: Install Dusk Tests
         run: php artisan dusk:install
-      - name: ci-dusk
+#       - name: ci-dusk
+#         env:
+#           APP_URL: "http://127.0.0.1:8000"
+#         run: |
+#           chmod -R 755 bin/ci-dusk
+#           bin/ci-dusk
+      - name: Artisan dusk
         env:
           APP_URL: "http://127.0.0.1:8000"
         run: |
-          chmod -R 755 bin/ci-dusk
-          bin/ci-dusk
+           chmod -R 0755 vendor/laravel/dusk/bin/
+           php artisan serve --host=127.0.0.1 &
+           php artisan dusk
+      - name: php artisan dusk
+        env:
+          APP_URL: "http://127.0.0.1:8000"
+        run: |
+           php artisan dusk       
+           
       - name: Run Dusk Tests
+        
         env:
           APP_ENV: testing
           APP_URL: "http://127.0.0.1:8000"
