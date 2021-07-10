@@ -127,6 +127,7 @@ jobs:
           APP_URL: "http://127.0.0.1:8000"
           APP_ENV: testing
         run: |
+           apt-get -y install libnss3 chromium-browser || echo " cannot install"
            chmod -R 0755 vendor/laravel/dusk/bin/
            php artisan serve --host=127.0.0.1 &
            php artisan dusk
