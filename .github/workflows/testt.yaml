@@ -102,7 +102,9 @@ jobs:
            wget https://chromedriver.storage.googleapis.com/87.0.4280.20/chromedriver_linux64.zip
            unzip chromedriver_linux64.zip
            chmod +x chromedriver
-           cp chromedriver ./vendor/laravel/dusk/bin/chromedriver-linux
+           pkill "chrome"
+           ls 
+           cp  -f chromedriver ./vendor/laravel/dusk/bin/chromedriver-linux
       - name: Install Dusk Tests
         run: php artisan dusk:install
       - name: Run Dusk Tests
