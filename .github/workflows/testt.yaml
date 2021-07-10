@@ -110,5 +110,9 @@ jobs:
       - name: Run Dusk Tests
         env:
           APP_URL: "http://127.0.0.1:8000"
-        run: php artisan dusk
+        run: 
+                php artisan serve  > /dev/null 2>&1 &
+                curl localhost:8000 &
+                ./vendor/laravel/dusk/bin/chromedriver-linux > /dev/null 2>&1 &
+                php artisan dusk
       
