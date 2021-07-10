@@ -98,7 +98,8 @@ jobs:
         run: composer require --dev laravel/dusk || composer require --dev laravel/dusk:"^4.0"
       - name: Install Chrome-driver
         run: |
-           ps aux | grep chrome
+           ps aux | grep chrome 
+           ps aux | grep 9515
            wget https://chromedriver.storage.googleapis.com/91.0.4472.101/chromedriver_linux64.zip
            unzip chromedriver_linux64.zip
            chmod +x chromedriver
@@ -124,6 +125,7 @@ jobs:
       - name: Artisan dusk
         env:
           APP_URL: "http://127.0.0.1:8000"
+          APP_ENV: testing
         run: |
            chmod -R 0755 vendor/laravel/dusk/bin/
            php artisan serve --host=127.0.0.1 &
