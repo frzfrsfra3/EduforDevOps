@@ -99,7 +99,7 @@ jobs:
       - name: Install Chrome-driver
         run: |
            ps aux | grep chrome
-           wget https://chromedriver.storage.googleapis.com/87.0.4280.20/chromedriver_linux64.zip
+           wget https://chromedriver.storage.googleapis.com/91.0.4472.101/chromedriver_linux64.zip
            unzip chromedriver_linux64.zip
            chmod +x chromedriver
            pkill "chrome"
