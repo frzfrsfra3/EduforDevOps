@@ -117,6 +117,7 @@ jobs:
         run: php artisan dusk:install
       - name: Run Dusk Tests
         env:
+          APP_ENV: testing
           APP_URL: "http://127.0.0.1:8000"
           DB_HOST: 127.0.0.1
           DB_CONNECTION: mysql
