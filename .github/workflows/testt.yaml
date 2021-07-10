@@ -116,6 +116,8 @@ jobs:
       - name: Install Dusk Tests
         run: php artisan dusk:install
       - name: ci-dusk
+        env:
+          APP_URL: "http://127.0.0.1:8000"
         run: |
           chmod -R 755 bin/ci-dusk
           bin/ci-dusk
