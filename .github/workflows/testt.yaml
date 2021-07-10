@@ -127,7 +127,7 @@ jobs:
           DB_PORT: 3306 
         run: 
                 php artisan serve  --host=127.0.0.1  > /dev/null 2>&1 &
-                curl localhost:8000 &
+                curl 127.0.0.1:8000 &
                 ./vendor/laravel/dusk/bin/chromedriver-linux > /dev/null 2>&1 &
                 php artisan dusk
       
