@@ -100,7 +100,7 @@ jobs:
         run: |
            ps aux | grep chrome 
            ps aux | grep 9515
-           wget https://chromedriver.storage.googleapis.com/91.0.4472.101/chromedriver_linux64.zip
+           wget https://chromedriver.storage.googleapis.com/97.0.4692.01/chromedriver_linux64.zip
            unzip chromedriver_linux64.zip
            chmod +x chromedriver
            pkill "chrome"
